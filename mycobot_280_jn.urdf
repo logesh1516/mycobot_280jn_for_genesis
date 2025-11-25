@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot name="mycobot_280jn" xmlns:xacro="http://www.ros.org/wiki/xacro">
+  <xacro:property name="width" value=".2"></xacro:property>
+  <link name="base_link">
+    <visual>
+      <geometry>
+        <mesh filename="package://meshes/base_link.obj"></mesh>
+      </geometry>
+      <origin rpy="0 0 1.5708" xyz="0.0 0 -0.032"></origin>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://meshes/base_link.obj"></mesh>
+      </geometry>
+      <origin rpy="0 0 1.5708" xyz="0.0 0 -0.032"></origin>
+    </collision>
+  </link>
+  <link name="link1">
+    <visual>
+      <geometry>
+        <!--- 0.0 0 -0.04  1.5708 3.14159-->
+        <mesh filename="package://meshes/link1.obj"></mesh>
+      </geometry>
+      <origin rpy=" 0 0 3.14159" xyz="0.0 0 0 "></origin>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://meshes/link1.obj"></mesh>
+      </geometry>
+      <origin rpy="0 0 3.14159" xyz="0.0 0 0"></origin>
+    </collision>
+  </link>
+  <link name="link2">
+    <visual>
+      <geometry>
+        <mesh filename="package://meshes/link2.obj"></mesh>
+      </geometry>
+      <origin rpy=" 0 0 -1.5708" xyz="0.0 0 -0.06096 "></origin>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://meshes/link2.obj"></mesh>
+      </geometry>
+      <origin rpy="0 0 -1.5708" xyz="0.0 0 -0.06096"></origin>
+    </collision>
+  </link>
+  <link name="link3">
+    <visual>
+      <geometry>
+        <mesh filename="package://meshes/link3.obj"></mesh>
+      </geometry>
+      <origin rpy=" 0 -1.5708 0" xyz="0.0 0 0.03256 "></origin>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://meshes/link3.obj"></mesh>
+      </geometry>
+      <origin rpy="0 -1.5708 0" xyz="0.0 0 0.03256"></origin>
+    </collision>
+  </link>
+  <link name="link4">
+    <visual>
+      <geometry>
+        <!--- 0.0 0 -0.04 -->
+        <mesh filename="package://meshes/link4.obj"></mesh>
+      </geometry>
+      <origin rpy=" 0 -1.5708 0" xyz="0.0 0 0.03056 "></origin>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://meshes/link4.obj"></mesh>
+      </geometry>
+      <origin rpy="0 -1.5708 0" xyz="0.0 0 0.03056"></origin>
+    </collision>
+  </link>
+  <link name="link5">
+    <visual>
+      <geometry>
+        <!--- 0.0 0 -0.04 -->
+        <mesh filename="package://meshes/link5.obj"></mesh>
+      </geometry>
+      <origin rpy="-1.5708 0 0 " xyz="0.0 0 -0.03356 "></origin>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://meshes/link5.obj"></mesh>
+      </geometry>
+      <origin rpy="-1.5708 0 0" xyz="0.0 0 -0.033l56"></origin>
+    </collision>
+  </link>
+  <link name="link6">
+    <visual>
+      <geometry>
+        <!--- 0.0 0 -0.04 -->
+        <mesh filename="package://meshes/link6.obj"></mesh>
+      </geometry>
+      <origin rpy=" 0 0 0" xyz="0 0.00 -0.038 "></origin>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://meshes/link6.obj"></mesh>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0 0.00 -0.038"></origin>
+    </collision>
+  </link>
+  <link name="link7">
+    <visual>
+      <geometry>
+        <!--- 0.0 0 -0.04 -->
+        <mesh filename="package://meshes/link7.obj"></mesh>
+      </geometry>
+      <origin rpy=" 0 0 0" xyz="0.0 0 -0.012 "></origin>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://meshes/link7.obj"></mesh>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0.0 0 -0.012"></origin>
+    </collision>
+  </link>
+  <joint name="base_link_to_link1" type="fixed">
+    <axis xyz="0 0 0"></axis>
+    <limit effort="1000.0" lower="-3.14" upper="3.14159" velocity="0"></limit>
+    <parent link="base_link"></parent>
+    <child link="link1"></child>
+    <origin rpy="0 0 0" xyz="0 0 0"></origin>
+  </joint>
+  <joint name="joint1" type="revolute">
+    <axis xyz="0 0 1"></axis>
+    <limit effort="1000.0" lower="-2.9321" upper="2.9321" velocity="0"></limit>
+    <parent link="link1"></parent>
+    <child link="link2"></child>
+    <origin rpy="0 0 0" xyz="0 0 0.15756"></origin>
+  </joint>
+  <joint name="joint2" type="revolute">
+    <axis xyz="0 0 1"></axis>
+    <limit effort="1000.0" lower="-2.3562" upper="2.3562" velocity="0"></limit>
+    <parent link="link2"></parent>
+    <child link="link3"></child>
+    <origin rpy="0 1.5708 -1.5708" xyz="0 0 -0.001"></origin>
+  </joint>
+  <joint name="joint3" type="revolute">
+    <axis xyz=" 0 0 1"></axis>
+    <limit effort="1000.0" lower="-2.6179" upper="2.6179" velocity="0"></limit>
+    <parent link="link3"></parent>
+    <child link="link4"></child>
+    <origin rpy="0 0 0" xyz="  -0.1104 0 0   "></origin>
+  </joint>
+  <joint name="joint4" type="revolute">
+    <axis xyz=" 0 0 1"></axis>
+    <limit effort="1000.0" lower="-2.5307" upper="2.5307" velocity="0"></limit>
+    <parent link="link4"></parent>
+    <child link="link5"></child>
+    <origin rpy="0 0 -1.5708" xyz="-0.096 0 0.06462"></origin>
+  </joint>
+  <joint name="joint5" type="revolute">
+    <axis xyz="0 0 1"></axis>
+    <limit effort="1000.0" lower="-2.8797" upper="2.8797" velocity="0"></limit>
+    <parent link="link5"></parent>
+    <child link="link6"></child>
+    <origin rpy="1.5708 -1.5708 0" xyz="0 -0.07318 0"></origin>
+  </joint>
+  <joint name="joint6" type="revolute">
+    <axis xyz="0 0 1"></axis>
+    <limit effort="1000.0" lower="-3.14" upper="3.14159" velocity="0"></limit>
+    <parent link="link6"></parent>
+    <child link="link7"></child>
+    <origin rpy="-1.5708 0 0" xyz="0 0.0456 0"></origin>
+  </joint>
+</robot>
