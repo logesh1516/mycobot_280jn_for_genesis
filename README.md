@@ -13,7 +13,6 @@ This project provides a URDF model of the MyCobot 280 JN robot arm, along with i
 - [Features](#features)  
 - [Installation](#installation) 
 - [Visualization](#visualization)
-- [Images](#images) 
 
 ---
 
@@ -52,8 +51,6 @@ gs view mycobot_280_jn.urdf
 ```
 
 this will open the viewer
-
-## Images
 
 
 
